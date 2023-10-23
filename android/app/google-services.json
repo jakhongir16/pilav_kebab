@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "891973890751",
+    "project_id": "ploff-kebab-2717e",
+    "storage_bucket": "ploff-kebab-2717e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891973890751:android:94d14da9e28bf63ae10c0a",
+        "android_client_info": {
+          "package_name": "com.example.ploff_kebab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlUEUP7OAyPXeDb7fXE4yXkxnb_nKKs0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

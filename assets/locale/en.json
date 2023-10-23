@@ -1,0 +1,14 @@
+{
+  "home": "Main",
+  "basket": "Basket",
+  "myorders": "My Orders",
+  "profile": "Profile",
+  "settings": "Settings",
+  "continue": "Continue",
+  "register": "Register",
+  "sendCodeAgainOtp": "Send the code again",
+  "basket": "Basket",
+  "add_product": "Add product",
+  "active_orders": "Активные заказы",
+  "history_orders": "History orders"
+}
