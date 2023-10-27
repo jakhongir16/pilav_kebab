@@ -1,103 +1,84 @@
-import 'package:flutter/material.dart';
-import 'package:ploff_kebab/src/core/extension/extension.dart';
-import 'package:ploff_kebab/src/core/utils/utils.dart';
-
-class ProductThirdList extends StatelessWidget {
-  const ProductThirdList({Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverList.separated(
-
-      itemBuilder: (_, index) => SizedBox(
-        height: 44,
-        child: Padding(
-          padding: AppUtils.kPaddingAll12,
-          child: Material(
-            borderRadius: AppUtils.kBorderRadius16,
-            child: Padding(
-              padding: AppUtils.kPaddingHor14Ver16,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: List<Widget>.generate(
-                  7,
-                      (index) => index == 0
-                      ? Padding(
-                    padding: AppUtils.kPaddingHor14Ver16,
-                    child: Column(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Со скидкой',
-                          style: context
-                              .textStyle.sfProDisplay
-                              .copyWith(
-                            fontSize: 22,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                      : Column(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.start,
-                      children: [
-                        ListTile(
-                          title: Column(
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Чайханский плов',
-                                style: context
-                                    .textStyle.sfProDisplay4
-                                    .copyWith(
-                                  color: context
-                                      .color.primaryText,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                              Text(
-                                'Своим именем чайханский плов обязан старой ташкентской традиции «ош»...',
-                                style: context
-                                    .textStyle.sfProDisplay2
-                                    .copyWith(
-                                  color: context
-                                      .color.thirdBlack,
-                                ),
-                              ),
-                            ],
-                          ),
-                          subtitle: Text(
-                            '47 000 сум',
-                            style: context
-                                .textStyle.sfProDisplay
-                                .copyWith(
-                              fontSize: 15,
-                            ),
-                          ),
-                          trailing: const Material(
-                            borderRadius:
-                            AppUtils.kBorderRadius8,
-                            child: Image(
-                              image: AssetImage(
-                                  'assets/logo/kebab_logo.png'),
-                              height: 88,
-                              width: 88,
-                            ),
-                          ),
-                        ),
-                      ]),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-      separatorBuilder: (_, __) => AppUtils.kDivider,
-      itemCount: 3,
-    );
-  }
-}
+// import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:gap/gap.dart';
+// import 'package:ploff_kebab/src/core/constants/constants.dart';
+// import 'package:ploff_kebab/src/core/extension/extension.dart';
+// import 'package:ploff_kebab/src/core/extension/language_extension.dart';
+// import 'package:ploff_kebab/src/core/utils/utils.dart';
+// import 'package:ploff_kebab/src/data/models/get_category_product/category_with_products.dart';
+// import 'package:ploff_kebab/src/data/models/product_model.dart';
+// import 'package:ploff_kebab/src/domain/repositories/category_repository.dart';
+// import 'package:ploff_kebab/src/presentation/bloc/home/home_bloc.dart';
+//
+// class ProductThirdList extends StatelessWidget {
+//   const ProductThirdList({Key? key,
+//   required this.productModel}) : super(key: key);
+//   final CategoryWithProducts productModel;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//
+//         return BlocBuilder<HomeBloc, HomeState>(
+//           builder: (context, index){
+//           return Padding(
+//             padding: AppUtils.kPaddingAll16,
+//             child: Row(
+//               mainAxisAlignment: MainAxisAlignment.start,
+//               crossAxisAlignment: CrossAxisAlignment.center,
+//               children: [
+//                 Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     SizedBox(
+//                       width: 150,
+//                       height: 24,
+//                       child: Text(
+//                         productModel.title.getLocalizedDescription(),
+//                         style: context.textStyle.regularSubheadline,
+//                       ),
+//                     ),
+//                     SizedBox(
+//                       width: 239,
+//                       height: 38,
+//                       child: Text(
+//                         productModel.description.getLocalizedDescription(),
+//                         style: context.textStyle.regularFootnote
+//                             .copyWith(color: context.color.thirdBlack),
+//                       ),
+//                     ),
+//                     const Gap(8),
+//                     Text(
+//                       "${productModel.products[index].outPrice.moneyFormat} ${context.tr("sum")}",
+//                       style: context.textStyle.regularSubheadline
+//                           .copyWith(fontWeight: FontWeight.w600),
+//                     ),
+//                   ],
+//                 ),
+//                 const Gap(8),
+//                 CachedNetworkImage(
+//                     imageUrl: Constants.imageUrl + productModel.image,
+//                     width: 88,
+//                     height: 88,
+//                     fit: BoxFit.cover,
+//                     errorWidget: (context, url, error) => const  Icon(
+//                       Icons.coffee,
+//                     ),
+//                     placeholder: (context, url) => const Icon(Icons.error,)
+//                 )
+//               ],
+//             ),
+//
+//           ),
+//     );
+//
+//           }
+//
+//
+//
+//
+//
+//
+//
+//   }
+// }

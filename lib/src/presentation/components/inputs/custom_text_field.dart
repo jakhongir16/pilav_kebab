@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ploff_kebab/src/config/theme/themes.dart';
 import 'package:ploff_kebab/src/core/extension/extension.dart';
+import 'package:ploff_kebab/src/core/utils/utils.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -32,9 +33,10 @@ class CustomTextField extends StatelessWidget {
     this.contentPadding,
     this.style,
     this.filled,
+    this.haveBorder = true,
     this.outlineInputBorder,
     this.focusedInBorder,
-
+    this.borderColor,
   });
 
   final String? hintText;
@@ -65,8 +67,8 @@ class CustomTextField extends StatelessWidget {
   final bool? filled;
   final OutlineInputBorder? outlineInputBorder;
   final InputBorder? focusedInBorder;
-
-
+  final Color? borderColor;
+  final bool haveBorder;
   @override
   Widget build(BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -105,7 +107,12 @@ class CustomTextField extends StatelessWidget {
             decoration: InputDecoration(
 
               border: outlineInputBorder,
-              focusedBorder: focusedInBorder,
+              focusedBorder: OutlineInputBorder(
+                borderSide: haveBorder
+                    ? BorderSide(color: borderColor ?? Colors.grey.shade300)
+                    : BorderSide.none,
+                borderRadius: AppUtils.kBorderRadius10,
+              ),
               fillColor: fillColor,
               filled: filled,
               suffixIcon: suffixIcon,

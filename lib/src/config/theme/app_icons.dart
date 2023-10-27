@@ -8,7 +8,7 @@
 //import 'package:flutter/widgets.dart';
 part of 'themes.dart';
 
-
+const String fromPng = 'assets/png/';
 
 class AppIcons {
   AppIcons._();
@@ -34,4 +34,11 @@ class AppIcons {
   static const IconData right_arrow = IconData(0xe911, fontFamily: _fontFamily);
   static const IconData settings = IconData(0xe913, fontFamily: _fontFamily);
   static const IconData shopping_bag = IconData(0xe900, fontFamily: _fontFamily);
+}
+
+sealed class AppImages {
+  static const String defaultProduct = '${fromPng}product_empty.png';
+  static const String logo = '${fromPng}logo.png';
+  static const String emptyCart = '${fromPng}empty_cart.png';
+  static const String mapIcon = '${fromPng}map_icon.png';
 }

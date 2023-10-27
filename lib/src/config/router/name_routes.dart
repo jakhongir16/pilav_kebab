@@ -7,6 +7,7 @@ sealed class Routes {
 
   /// main
   static const String main = '/main';
+  static const String secondMain = '/second_main';
   static const String internetConnection = '/internet_connection';
 
   /// profile
@@ -21,4 +22,8 @@ sealed class Routes {
 
   static const String language = '/selectLanguage';
 
+  /// map
+  static const String mapPage = '/map_page';
+
+  static const String product = '/product';
 }

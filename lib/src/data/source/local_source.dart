@@ -96,4 +96,14 @@ final class LocalSource {
     await box.delete(AppKeys.userId);
     await box.delete(AppKeys.imageUrl);
   }
+
+  Future<void> setYandexKey(String value) async {
+    await box.put(AppKeys.yandex, value);
+  }
+
+  String getYandexKey(){
+  return box.get(AppKeys.yandex, defaultValue: Constants.yandexApiKey);
+}
+
+
 }

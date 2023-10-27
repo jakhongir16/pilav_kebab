@@ -8,7 +8,11 @@
   "registration": "Royhatdan otish",
   "sendCodeAgainOtp": "Kodni qayta yuboring",
   "basket": "Savat",
-  "add_product": "Mahsulot qo'shing",
+  "add_product": "Mahsulotni qo'shing",
   "active_orders": "Активные заказы",
-  "history_orders": "Buyurtma tarihi"
+  "history_orders": "Buyurtma tarihi",
+  "no_products_on_bin": "Qutida hali mahsulotlar yoq",
+  "confirm": "Tasdiqlash",
+  "entrance": "Kirish",
+  "sum": "so'm"
 }

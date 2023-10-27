@@ -10,5 +10,9 @@
   "basket": "Basket",
   "add_product": "Add product",
   "active_orders": "Активные заказы",
-  "history_orders": "History orders"
+  "history_orders": "History orders",
+  "no_products_on_bin": "There are no products on bin yet",
+  "confirm": "Confirm",
+  "entrance": "Enterence",
+  "sum": "sum"
 }

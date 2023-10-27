@@ -32,9 +32,13 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       }
     },
     child: AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.light,
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: Brightness.light,
+        statusBarIconBrightness: Brightness.dark,
+      ),
       child: Scaffold(
-        backgroundColor: ThemeColors.light.whiteBackground,
+        backgroundColor: Colors.white,
         body:  Stack(
           children: [
             Align(
