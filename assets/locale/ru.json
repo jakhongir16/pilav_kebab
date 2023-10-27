@@ -10,5 +10,9 @@
   "basket": "Корзина",
   "add_product": "Добавить продукт",
   "active_orders": "Активные заказы",
-  "history_orders": "История заказов"
+  "history_orders": "История заказов",
+  "no_products_on_bin": "В корзине пока нет продукты",
+  "confirm": "Подтвердить",
+  "entrance": "Подъезд",
+  "sum": "сум"
 }

@@ -43,7 +43,7 @@ children: [
     ),
     AppUtils.kGap24,
     Text(
-      "В корзине пока нет продукты",
+      context.tr("no_products_on_bin"),
       style: context.textStyle.sfProDisplay4,
 
     )

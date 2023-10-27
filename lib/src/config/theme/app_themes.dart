@@ -133,6 +133,7 @@ final ThemeData lightTheme = appTheme.copyWith(
         color: colorLightScheme.primary,
       ),
     ),
+
   ),
   navigationBarTheme: NavigationBarThemeData(
     elevation: 0,

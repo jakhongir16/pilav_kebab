@@ -8,8 +8,10 @@ import 'package:ploff_kebab/src/config/router/app_routes.dart';
 import 'package:ploff_kebab/src/config/theme/themes.dart';
 import 'package:ploff_kebab/src/injector_container.dart';
 import 'package:ploff_kebab/src/presentation/bloc/log_bloc_observer.dart';
+import 'package:yandex_mapkit/yandex_mapkit.dart';
 
 void main()  async {
+  AndroidYandexMap.useAndroidViewSurface = false;
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   

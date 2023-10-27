@@ -36,10 +36,10 @@ sealed class AppUtils {
 
 
   /// divider
-  static const kDivider = Divider(height: 1, color: Color.fromRGBO(0, 0, 0, 1),
+  static const kDivider = Divider(height: 1, color: Color(0xFFF5F5F5),
   thickness: 2,
   );
-  static const kDivider2 = Divider(height: 16,);
+  static const kDivider2 = Divider(height: 12, color: Color(0xFFF5F5F5), thickness: 12,);
 
 
 
@@ -56,6 +56,9 @@ sealed class AppUtils {
   static const kPaddingHorizontal16 = EdgeInsets.symmetric(horizontal: 16);
   static const kPaddingHor32Ver20 =
       EdgeInsets.symmetric(horizontal: 32, vertical: 20);
+  static const kPaddinTop16Left16 = EdgeInsets.fromLTRB(16, 16, 0, 0);
+  static const kPaddingBanner = EdgeInsets.only(top: 16, bottom: 8);
+
   static const kPaddingHorizontal24Vertical16 = EdgeInsets.symmetric(horizontal: 24, vertical: 16);
   static const kPaddingBottom16 = EdgeInsets.fromLTRB(0, 0, 0, 16);
   static const kPaddingBottom2 = EdgeInsets.fromLTRB(0, 0, 0, 2);
@@ -66,7 +69,8 @@ sealed class AppUtils {
       EdgeInsets.symmetric(horizontal: 16, vertical: 12);
   static const kPaddingHor16Ver24 =
       EdgeInsets.symmetric(horizontal: 16, vertical: 24);
-
+  static const kPaddingVer16 = EdgeInsets.symmetric(vertical: 16);
+  static const kPaddingHorizontal4 = EdgeInsets.symmetric(horizontal: 4);
   static const kPaddingAllB16 = EdgeInsets.fromLTRB(16, 16, 16, 0);
   static const kPaddingAllT16 = EdgeInsets.fromLTRB(16, 0, 16, 16);
   static const kPaddingL16T8R16B16 = EdgeInsets.fromLTRB(16, 8, 16, 16);
@@ -88,6 +92,7 @@ sealed class AppUtils {
   static const kBorderRadius24 = BorderRadius.all(Radius.circular(24));
   static const kBorderRadius32 = BorderRadius.all(Radius.circular(32));
   static const kBorderRadius55 = BorderRadius.all(Radius.circular(55));
+  static const kBorderRadius1212 = BorderRadius.only(topRight: Radius.circular(12), topLeft: Radius.circular(12), bottomLeft: Radius.zero, bottomRight: Radius.zero);
 
   static const kShapeRoundedNone = RoundedRectangleBorder();
   static const kShapeRoundedAll12 = RoundedRectangleBorder(

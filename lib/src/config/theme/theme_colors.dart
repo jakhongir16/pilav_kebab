@@ -52,6 +52,9 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     required this.thirdBlack,
     required this.fourthBlack,
     required this.mainBackground,
+    required this.anotherGrey,
+    required this.ordinaryBlack,
+    required this.anotherBlack,
   });
   final Color white;
   final Color green;
@@ -71,6 +74,9 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
   final Color thirdBlack;
   final Color mainBackground;
   final Color fourthBlack;
+  final Color anotherGrey;
+  final Color ordinaryBlack;
+  final Color anotherBlack;
   static const ThemeColors light = ThemeColors(
     white: Color(0xFFFFFFFF),
     yellow: Color(0xFFF4CA36),
@@ -90,6 +96,9 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     thirdBlack: Color(0xff858585),
     mainBackground: Color(0xFFF5F5F5),
     fourthBlack: Color(0xFF2B2A28),
+    anotherGrey: Color(0xffE5E5E5),
+    ordinaryBlack: Color(0xFF5F5F5F),
+    anotherBlack: Color(0xFF858585),
   );
   
   static const ThemeColors dark = ThemeColors(
@@ -111,6 +120,9 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     thirdBlack: Color(0xff858585),
     mainBackground: Color(0xffF5F5F5),
     fourthBlack: Color(0xFF2B2A28),
+    anotherGrey: Color(0xE5E5E5),
+    ordinaryBlack: Color(0xFF5F5F5F),
+    anotherBlack: Color(0xFF858585),
   );
   
   @override
@@ -132,6 +144,9 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     Color? thirdBlack,
     Color? fourthBlack,
     Color? mainBackground,
+    Color? anotherGrey,
+    Color? ordinaryBlack,
+    Color? anotherBlack,
   }) =>
       ThemeColors(
         white: white ?? this.white,
@@ -152,7 +167,9 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
         thirdBlack: thirdBlack ?? this.thirdBlack,
         fourthBlack: fourthBlack ?? this.fourthBlack,
         mainBackground: mainBackground ?? this.mainBackground,
-
+       anotherGrey: anotherGrey ?? this.anotherGrey,
+        ordinaryBlack: ordinaryBlack ?? this.ordinaryBlack,
+        anotherBlack: anotherBlack ?? this.anotherBlack,
       );
 
   @override
@@ -180,6 +197,9 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
       thirdBlack: Color.lerp(thirdBlack, other.thirdBlack, t)!,
       mainBackground: Color.lerp(mainBackground, other.mainBackground, t)!,
       fourthBlack: Color.lerp(fourthBlack, other.fourthBlack, t)!,
+      anotherGrey: Color.lerp(anotherGrey, other.anotherGrey, t)!,
+      ordinaryBlack: Color.lerp(ordinaryBlack, other.ordinaryBlack, t)!,
+      anotherBlack: Color.lerp(anotherBlack, other.anotherBlack, t)!,
     );
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ploff_kebab/src/presentation/bloc/home/home_bloc.dart';
 import 'package:ploff_kebab/src/presentation/bloc/main/main_bloc.dart';
 import 'package:ploff_kebab/src/presentation/pages/main/basket/basket_page.dart';
-import 'package:ploff_kebab/src/presentation/pages/main/home/home_page.dart';
+import 'package:ploff_kebab/src/presentation/pages/main/home/home_page_view.dart';
 import 'package:ploff_kebab/src/presentation/pages/main/myorder/myorder_page.dart';
 import 'package:ploff_kebab/src/presentation/pages/main/profile/profile.dart';
 import 'package:ploff_kebab/src/presentation/pages/main/widgets/custom_bottom_bar.dart';
@@ -26,8 +26,8 @@ class MainPage extends StatelessWidget {
         child: Scaffold(
          body: IndexedStack(
             index: bottomMenu.index,
-            children: [
-                HomePage(),
+            children: const [
+                HomePageView(),
                 BasketPage(),
                 MyOrderPage(),
                 Profile(),

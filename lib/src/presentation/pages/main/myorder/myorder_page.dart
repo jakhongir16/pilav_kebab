@@ -27,11 +27,11 @@ class _MyOrderPageState extends State<MyOrderPage> with SingleTickerProviderStat
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
       centerTitle: true,
-      title: Text(
+      title: const Text(
         "Мои заказы",
       ),
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(
+        preferredSize: const Size.fromHeight(
           56
         ),
         child: Padding(

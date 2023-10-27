@@ -1,19 +1,25 @@
-part of 'package:ploff_kebab/src/presentation/pages/main/home/home_page.dart';
+// part of 'package:ploff_kebab/src/presentation/pages/main/home/widgets/home_page_view.dart';
 
-mixin HomeMixin on State<HomePage> {
+part of 'package:ploff_kebab/src/presentation/pages/main/home/home_page_view.dart';
+
+mixin HomeMixinView on State<HomePageView> {
   late final ScrollController _scrollController;
   late final PageController _pageController;
-  late final HomeBloc bloc = context.read<HomeBloc>();
   late final bool innerBoxIsScrolled;
-
-  late final ValueNotifier<int> _bannerListener = ValueNotifier<int>(999);
+  // late final ValueChanged<int> onTap;
+  late final ValueNotifier<int> _bannerListener = ValueNotifier<int>(1);
   late Timer _timer;
   late final TabController _tabController;
   late final ScrollController _controllerScroll = ScrollController();
+ // final List<Category> data = ExampleData.data;
+  late AutoScrollController autoScrollController;
+  late final HomeBloc bloc = context.read<HomeBloc>();
+   bool isInit = false;
 
   @override
   void initState() {
     super.initState();
+    autoScrollController = AutoScrollController();
     _scrollController = ScrollController();
     _pageController = PageController(
       initialPage: 999,
@@ -27,34 +33,43 @@ mixin HomeMixin on State<HomePage> {
     _timer = Timer.periodic(
       const Duration(seconds: 5),
           (t) {
-        _bannerListener.value = _bannerListener.value + 1;
-        _pageController.animateToPage(
-          _bannerListener.value,
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeInOut,
-        );
+        if(_pageController.hasClients) {
+          _bannerListener.value = _bannerListener.value + 1;
+          _pageController.animateToPage(
+            _bannerListener.value,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        }
       },
     );
   }
 
-  void listener(BuildContext context, HomeState state) {
+
+  // void initcontroller(int len,vsync){
+  //   _tabController  = TabController(length: len, vsync: vsync);
+  //   isInit = true;
+  //
+  // }
+  void listener({required BuildContext context, required HomeState state, required TickerProvider vsync}) {
+
     if (state.isScrollingTop) {
       _scrollController.animateTo(
         0,
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
-      bloc.add(const HomeScroll(isScrollingTop: false));
+
     }
   }
 
   void initController(TickerProvider vsync){
-    _tabController = TabController(length: 4, vsync: vsync);
+    _tabController = TabController(length: 10, vsync: vsync);
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
+
     _timer.cancel();
     _scrollController.dispose();
     _pageController.dispose();
