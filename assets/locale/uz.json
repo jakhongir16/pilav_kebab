@@ -14,5 +14,19 @@
   "no_products_on_bin": "Qutida hali mahsulotlar yoq",
   "confirm": "Tasdiqlash",
   "entrance": "Kirish",
-  "sum": "so'm"
+  "sum": "so'm",
+  "enter_name": "Iltimos, ushbu maydonga ismingizni kiriting",
+  "write_name": "Ismingizni kiriting",
+  "name_surname": "Ism familiya",
+  "phone_number": "Telefon raqami",
+  "otp": "Tasdiqlash kodi",
+  "send_otp_again": "Kodni yana yuborish",
+  "add_to_basket": "Savatga qo'shish",
+  "no_active_order": "Sizda faol buyurtmalar yo‘q",
+  "branches": "Filiallar",
+  "addresses": "Mening manzillarim",
+  "service": "Xizmat haqida",
+  "size": "Hajm",
+  "add_location": "Joylashuvni qo'shing"
+
 }

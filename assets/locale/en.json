@@ -14,5 +14,18 @@
   "no_products_on_bin": "There are no products on bin yet",
   "confirm": "Confirm",
   "entrance": "Enterence",
-  "sum": "sum"
+  "sum": "sum",
+  "enter_name": "Please, enter your name this field",
+  "write_name": "Enter your name",
+  "name_surname": "First name last name",
+  "phone_number": "Phone number",
+  "otp": "Confirmation code",
+  "send_otp_again": "Send the code again",
+  "add_to_basket": "Add to Basket",
+  "no_active_order": "You have no active orders",
+  "branches": "Branches",
+  "addresses": "My addresses",
+  "service": "About service",
+  "size": "Size",
+  "add_location": "Add location"
 }

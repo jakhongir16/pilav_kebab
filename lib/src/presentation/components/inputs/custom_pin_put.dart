@@ -24,7 +24,7 @@ class CustomPinPut extends StatelessWidget {
         color: context.color.otpColor,
         borderRadius: borderRadius,
         border: Border.all(
-          color: context.colorScheme.outline,
+          color: context.color.borderRadiusSecondColor, //context.colorScheme.outline
         ),
       ),
     );

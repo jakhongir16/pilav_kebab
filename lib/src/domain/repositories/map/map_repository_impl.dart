@@ -20,8 +20,8 @@ class MapYandexRepositoryImpl implements MapYandexRepository {
 
       };
       final Response response = await dio.get(
-          'https://geocode-maps.yandex.ru/1.x/',
-          queryParameters: qParams
+          '${Constants.yandexUrl}${Urls.onePointX}',
+         // queryParameters: qParams
       );
       String simpleText = '';
       if (response.statusCode! >= 200 && response.statusCode! < 300) {

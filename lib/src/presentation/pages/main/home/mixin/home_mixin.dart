@@ -2,16 +2,16 @@
 
 part of 'package:ploff_kebab/src/presentation/pages/main/home/home_page_view.dart';
 
-mixin HomeMixinView on State<HomePageView> {
+mixin HomeMixinView on State<HomePageView> implements TickerProvider {
   late final ScrollController _scrollController;
   late final PageController _pageController;
-  late final bool innerBoxIsScrolled;
-  // late final ValueChanged<int> onTap;
+  final HomeState state = const HomeState();
+
   late final ValueNotifier<int> _bannerListener = ValueNotifier<int>(1);
   late Timer _timer;
-  late final TabController _tabController;
+  TabController? controllerTab;
   late final ScrollController _controllerScroll = ScrollController();
- // final List<Category> data = ExampleData.data;
+
   late AutoScrollController autoScrollController;
   late final HomeBloc bloc = context.read<HomeBloc>();
    bool isInit = false;
@@ -21,6 +21,8 @@ mixin HomeMixinView on State<HomePageView> {
     super.initState();
     autoScrollController = AutoScrollController();
     _scrollController = ScrollController();
+    // controllerTab = TabController(length: state, vsync: vsync)
+    listener(context: context, state: state, vsync: this);
     _pageController = PageController(
       initialPage: 999,
       keepPage: false,
@@ -46,12 +48,18 @@ mixin HomeMixinView on State<HomePageView> {
   }
 
 
-  // void initcontroller(int len,vsync){
-  //   _tabController  = TabController(length: len, vsync: vsync);
+  // void initcontroller(int len,vsync, HomeState state){
+  //   controllerTab  = TabController(length: state.categoryWithResponse?.length ?? 0, vsync: vsync);
   //   isInit = true;
   //
   // }
-  void listener({required BuildContext context, required HomeState state, required TickerProvider vsync}) {
+
+  // void initController(){
+  //  final bool ? innerBoxIsScrolled;
+  // }
+
+  void listener({required BuildContext context, required HomeState state,
+    required TickerProvider vsync}) {
 
     if (state.isScrollingTop) {
       _scrollController.animateTo(
@@ -59,13 +67,15 @@ mixin HomeMixinView on State<HomePageView> {
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
-
+      bloc.add(const HomeScroll(isScrollingTop: false));
     }
+    controllerTab ??= TabController(length: state.categoryWithResponse?.length ?? 0, vsync: vsync);
+
   }
 
-  void initController(TickerProvider vsync){
-    _tabController = TabController(length: 10, vsync: vsync);
-  }
+  // void initController(TickerProvider vsync){
+  //   _tabController = TabController(length: , vsync: vsync);
+  // }
 
   @override
   void dispose() {

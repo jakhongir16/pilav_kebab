@@ -48,6 +48,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     required this.borderRadiusFirstColor,
     required this.borderRadiusSecondColor,
     required this.otpColor,
+    required this.firstBlack,
     required this.secondBlack,
     required this.thirdBlack,
     required this.fourthBlack,
@@ -55,6 +56,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     required this.anotherGrey,
     required this.ordinaryBlack,
     required this.anotherBlack,
+    required this.anotherGreyColor,
   });
   final Color white;
   final Color green;
@@ -70,6 +72,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
   final Color borderRadiusFirstColor;
   final Color borderRadiusSecondColor;
   final Color otpColor;
+  final Color firstBlack;
   final Color secondBlack;
   final Color thirdBlack;
   final Color mainBackground;
@@ -77,6 +80,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
   final Color anotherGrey;
   final Color ordinaryBlack;
   final Color anotherBlack;
+  final Color anotherGreyColor;
   static const ThemeColors light = ThemeColors(
     white: Color(0xFFFFFFFF),
     yellow: Color(0xFFF4CA36),
@@ -92,6 +96,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     borderRadiusFirstColor: Color(0xFFF7F7F7),
     borderRadiusSecondColor: Color(0xFFFFCC00),
     otpColor: Color(0xFFF5F5F5),
+    firstBlack: Color(0xFF000000),
     secondBlack: Color(0xff5F5F5F),
     thirdBlack: Color(0xff858585),
     mainBackground: Color(0xFFF5F5F5),
@@ -99,6 +104,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     anotherGrey: Color(0xffE5E5E5),
     ordinaryBlack: Color(0xFF5F5F5F),
     anotherBlack: Color(0xFF858585),
+    anotherGreyColor: Color(0xFFA3A2A2),
   );
   
   static const ThemeColors dark = ThemeColors(
@@ -116,17 +122,20 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     borderRadiusFirstColor: Color(0xFFF7F7F7),
     borderRadiusSecondColor: Color(0xFFFFCC00),
     otpColor: Color(0xFFF5F5F5),
+    firstBlack: Color(0xFF000000),
     secondBlack: Color(0xff5F5F5F),
     thirdBlack: Color(0xff858585),
     mainBackground: Color(0xffF5F5F5),
     fourthBlack: Color(0xFF2B2A28),
-    anotherGrey: Color(0xE5E5E5),
+    anotherGrey: Color(0xFFE5E5E5),
     ordinaryBlack: Color(0xFF5F5F5F),
     anotherBlack: Color(0xFF858585),
+    anotherGreyColor: Color(0xFFA3A2A2),
   );
   
   @override
   ThemeExtension<ThemeColors> copyWith({
+    Color? white,
     Color? yellow,
     Color? green,
     Color? primaryText,
@@ -140,6 +149,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     Color? borderRadiusFirstColor,
     Color? borderRadiusSecondColor,
     Color? otpColor,
+    Color? firstBlack,
     Color? secondBlack,
     Color? thirdBlack,
     Color? fourthBlack,
@@ -147,6 +157,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
     Color? anotherGrey,
     Color? ordinaryBlack,
     Color? anotherBlack,
+    Color? anotherGreyColor,
   }) =>
       ThemeColors(
         white: white ?? this.white,
@@ -163,6 +174,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
         borderRadiusFirstColor: borderRadiusFirstColor ?? this.borderRadiusFirstColor,
         borderRadiusSecondColor: borderRadiusSecondColor ?? this.borderRadiusSecondColor,
         otpColor: otpColor ?? this.otpColor,
+        firstBlack: firstBlack ?? this.firstBlack,
         secondBlack: secondBlack ?? this.secondBlack,
         thirdBlack: thirdBlack ?? this.thirdBlack,
         fourthBlack: fourthBlack ?? this.fourthBlack,
@@ -170,6 +182,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
        anotherGrey: anotherGrey ?? this.anotherGrey,
         ordinaryBlack: ordinaryBlack ?? this.ordinaryBlack,
         anotherBlack: anotherBlack ?? this.anotherBlack,
+        anotherGreyColor: anotherGreyColor ?? this.anotherGreyColor,
       );
 
   @override
@@ -193,6 +206,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
       borderRadiusFirstColor: Color.lerp(borderRadiusFirstColor, other.borderRadiusFirstColor, t)!,
       borderRadiusSecondColor: Color.lerp(borderRadiusSecondColor, other.borderRadiusSecondColor, t)!,
       otpColor: Color.lerp(otpColor, other.otpColor, t)!,
+      firstBlack: Color.lerp(firstBlack, other.firstBlack, t)!,
       secondBlack: Color.lerp(secondBlack, other.secondBlack, t)!,
       thirdBlack: Color.lerp(thirdBlack, other.thirdBlack, t)!,
       mainBackground: Color.lerp(mainBackground, other.mainBackground, t)!,
@@ -200,6 +214,7 @@ class ThemeColors extends ThemeExtension<ThemeColors> {
       anotherGrey: Color.lerp(anotherGrey, other.anotherGrey, t)!,
       ordinaryBlack: Color.lerp(ordinaryBlack, other.ordinaryBlack, t)!,
       anotherBlack: Color.lerp(anotherBlack, other.anotherBlack, t)!,
+      anotherGreyColor: Color.lerp(anotherGreyColor, other.anotherGreyColor, t)!,
     );
   }
 }

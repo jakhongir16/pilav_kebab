@@ -79,7 +79,9 @@ dependencies:
   geolocator: ^10.0.1
   vertical_scrollable_tabview: ^0.1.0
   scroll_to_index: ^3.0.1
-  carousel_slider: ^4.2.1
+  rect_getter: ^1.1.0
+  map_launcher: ^2.5.0+1
+
 
 dev_dependencies:
   flutter_test:

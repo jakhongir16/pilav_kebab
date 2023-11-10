@@ -3,12 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ploff_kebab/src/config/router/app_routes.dart';
-import 'package:ploff_kebab/src/config/theme/themes.dart';
-
 import 'package:ploff_kebab/src/core/extension/extension.dart';
-
 import 'package:ploff_kebab/src/presentation/bloc/splash/bloc/splash_bloc.dart';
-import 'package:ploff_kebab/src/presentation/components/awesome/awesome_loader.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -60,9 +56,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 left: 0,
                 right: 0,
                 child: Center(
-                  child: AwesomeLoader(
-                    loaderType: awesomeLoader5,
-                    color: ThemeColors.light.loadIndicator,
+                  child: CircularProgressIndicator(
+                    color: context.color.borderRadiusSecondColor,
                   ),
                 ))
           ],

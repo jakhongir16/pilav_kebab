@@ -30,7 +30,8 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
     required this.sfProDisplay,
     required this.sfProDisplay2,
     required this.sfProDisplay3,
-    required this.sfProDisplay4
+    required this.sfProDisplay4,
+    required this.styleOfCounter,
   });
 
   final TextStyle appBarTitle;
@@ -62,6 +63,7 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
   final TextStyle sfProDisplay2;
   final TextStyle sfProDisplay3;
   final TextStyle sfProDisplay4;
+  final TextStyle styleOfCounter;
 
   static const ThemeTextStyles light = ThemeTextStyles(
     appBarTitle: TextStyle(
@@ -209,7 +211,11 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
       fontSize: 15,
       fontWeight: FontWeight.w500,
     ),
-
+   styleOfCounter: TextStyle(
+     fontSize: 18,
+     fontWeight: FontWeight.w500,
+     color: Color(0xFF141414),
+   )
   );
   static const ThemeTextStyles dark = ThemeTextStyles(
     appBarTitle: TextStyle(
@@ -357,6 +363,11 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
       fontSize: 15,
       fontWeight: FontWeight.w500,
     ),
+    styleOfCounter: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+        color: Color(0xFF141414),
+      )
   );
 
   @override
@@ -390,6 +401,7 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
     TextStyle? sfProDisplay2,
     TextStyle? sfProDisplay3,
     TextStyle? sfProDisplay4,
+    TextStyle? styleOfCounter,
   }) =>
       ThemeTextStyles(
         appBarTitle: appBarTitle ?? this.appBarTitle,
@@ -421,6 +433,7 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
         sfProDisplay2: sfProDisplay2 ?? this.sfProDisplay2,
         sfProDisplay3: sfProDisplay3 ?? this.sfProDisplay3,
         sfProDisplay4: sfProDisplay4 ?? this.sfProDisplay4,
+        styleOfCounter: styleOfCounter ?? this.styleOfCounter,
       );
 
   @override
@@ -466,6 +479,7 @@ class ThemeTextStyles extends ThemeExtension<ThemeTextStyles> {
       sfProDisplay2: TextStyle.lerp(sfProDisplay2, other.sfProDisplay2, t)!,
       sfProDisplay3: TextStyle.lerp(sfProDisplay3, other.sfProDisplay3, t)!,
       sfProDisplay4: TextStyle.lerp(sfProDisplay4, other.sfProDisplay4, t)!,
+      styleOfCounter: TextStyle.lerp(styleOfCounter, other.styleOfCounter, t)!,
     );
   }
 }

@@ -1,11 +1,3 @@
-// Place fonts/AppIcons.ttf in your fonts/ directory and
-// add the following to your pubspec.yaml
-// flutter:
-//   fonts:
-//    - family: AppIcons
-//      fonts:
-//       - asset: fonts/AppIcons.ttf
-//import 'package:flutter/widgets.dart';
 part of 'themes.dart';
 
 const String fromPng = 'assets/png/';
@@ -15,6 +7,8 @@ class AppIcons {
 
   static const String _fontFamily = 'AppIcons';
 
+  static const IconData select = IconData(0xe912, fontFamily: _fontFamily);
+  static const IconData unselect = IconData(0xe914, fontFamily: _fontFamily);
   static const IconData about = IconData(0xe901, fontFamily: _fontFamily);
   static const IconData basket = IconData(0xe902, fontFamily: _fontFamily);
   static const IconData call = IconData(0xe903, fontFamily: _fontFamily);
