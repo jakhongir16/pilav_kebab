@@ -18,4 +18,13 @@ sealed class AppKeys {
   static const String email = 'email';
   static const String langSelected = 'email';
   static const String yandex = 'yandex_key';
+  static const String id = 'id';
+  static const bool isBlocked = false;
+  static const String createdAt = 'created_at';
+  static const String updatedAt = 'updated_at';
+  static const int minimalOrderPrice = 0;
+  static const String name = 'name';
+  static const String code = 'code';
+  static const String message = 'message';
+  static const String localSource = 'plaff_kebab_products';
 }

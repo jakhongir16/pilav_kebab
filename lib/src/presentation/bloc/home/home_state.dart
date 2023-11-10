@@ -3,31 +3,28 @@ part of 'home_bloc.dart';
 class HomeState extends Equatable {
   const HomeState({
     this.isScrollingTop = false,
-    this.categoryWithResponse,
+    this.categoryWithResponse = const [],
     this.categoryStatus = HomeStatus.initial,
     this.chosenList = const [],
     this.error = "",
     this.apiStatus = ApiStatus.initial,
-    this.products = const [],
     this.bannerWithResponse,
     this.currentIndex,
   });
-
+// this.products = const [],
 
   final BannerResponse? bannerWithResponse;
   final int? currentIndex;
-  final List<Categories>? categoryWithResponse;
+  final List<CategoryModel>? categoryWithResponse;  // final List<Categories>? categoryWithResponse;
   final bool isScrollingTop;
   final ApiStatus apiStatus;
   final HomeStatus categoryStatus;
   final List<String> chosenList;
   final String error;
-  final List<Products> products;
   HomeState copyWith({
-    BannerResponse? bannerResponse,
+    BannerResponse? bannerWithResponse,
     int? currentIndex,
-    List<Categories>? categoryWithResponse,
-    List<Products>? products,
+    List<CategoryModel>? categoryWithResponse,
     bool? isScrollingTop,
     HomeStatus? categoryStatus,
     List<String>? chosenList,
@@ -35,7 +32,7 @@ class HomeState extends Equatable {
     ApiStatus? apiStatus,
   }) =>
       HomeState(
-        bannerWithResponse: bannerResponse ?? this.bannerWithResponse,
+        bannerWithResponse: bannerWithResponse ?? this.bannerWithResponse,
         currentIndex: currentIndex ?? this.currentIndex,
         categoryWithResponse: categoryWithResponse ?? this.categoryWithResponse,
         error: error ?? this.error,
@@ -43,9 +40,9 @@ class HomeState extends Equatable {
         categoryStatus: categoryStatus ?? this.categoryStatus,
         chosenList: chosenList ?? this.chosenList,
         apiStatus: apiStatus ??  this.apiStatus,
-        products: products ?? this.products,
-      );
 
+      );
+// products: products ?? this.products,
   @override
   List<Object?> get props => [
         bannerWithResponse,
@@ -53,7 +50,6 @@ class HomeState extends Equatable {
         isScrollingTop,
         categoryStatus,
         categoryWithResponse,
-        products,
         chosenList,
         error,
         apiStatus,

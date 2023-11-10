@@ -1,75 +1,88 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:gap/gap.dart';
-import 'package:ploff_kebab/src/config/router/app_routes.dart';
-import 'package:ploff_kebab/src/config/theme/themes.dart';
 import 'package:ploff_kebab/src/core/constants/constants.dart';
 import 'package:ploff_kebab/src/core/extension/extension.dart';
-import 'package:ploff_kebab/src/core/extension/language_extension.dart';
 import 'package:ploff_kebab/src/core/utils/utils.dart';
-import 'package:ploff_kebab/src/data/models/category_with_products_model.dart';
-import 'package:ploff_kebab/src/data/models/product_model.dart';
-import 'package:ploff_kebab/src/data/models/screen_args/product_page_args.dart';
 
 class ProductCardWidget extends StatelessWidget {
-  const ProductCardWidget({super.key, required this.category});
-
-  final List<Category> category;
+  const ProductCardWidget({
+    Key? key,
+    required this.onTap,
+    required this.urlImage,
+    required this.title,
+    required this.description,
+    required this.price,
+  }) : super(key: key);
+  final VoidCallback? onTap;
+  final String urlImage;
+  final String title;
+  final String description;
+  final String price;
 
   @override
   Widget build(BuildContext context) {
-    return SliverList.builder(itemBuilder: (context, index) {
-      return Padding(
-        padding: AppUtils.kPaddingAll16,
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: AppUtils.kPaddingOnly16.copyWith(bottom: 16),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 150,
-                  height: 24,
-                  child: Text(
-                    'categoryItem.title',
-                    style: context.textStyle.regularSubheadline,
-                  ),
-                ),
-                SizedBox(
-                  width: 239,
-                  height: 38,
-                  child: Text(
-                    "category",
-                    style: context.textStyle.regularFootnote
-                        .copyWith(color: context.color.thirdBlack),
-                  ),
-                ),
-                const Gap(8),
-                Text(
-                  '10000 sum',
-                  style: context.textStyle.regularSubheadline
-                      .copyWith(fontWeight: FontWeight.w600),
-                ),
-              ],
-            ),
-            const Gap(8),
-            CachedNetworkImage(
-                imageUrl: Constants.imageUrl,
-                width: 88,
+            Expanded(
+              child: SizedBox(
                 height: 88,
-                fit: BoxFit.cover,
-                errorWidget: (context, url, error) => const Icon(
-                      Icons.coffee,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: context.textStyle.sfProDisplay4.copyWith(
+                        color: context.color.primaryText,
+                      ),
                     ),
-                placeholder: (context, url) => const Icon(
-                      Icons.error,
-                    ))
+                    Text(
+                      description,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: context.textStyle.sfProDisplay2.copyWith(
+                        color: context.color.thirdBlack,
+                      ),
+                    ),
+                    Text(
+                      price,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: context.textStyle.sfProDisplay.copyWith(
+                      fontSize: 15),
+                    ),
+                  ],
+                ),
+              ),
+
+            ),
+            AppUtils.kGap16,
+            ClipRRect(
+              borderRadius: AppUtils.kBorderRadius8,
+              child: urlImage.isNotEmpty
+                ?CachedNetworkImage(
+                imageUrl: Constants.imageUrl + urlImage,
+                fit: BoxFit.cover,
+                height: 88,
+                width: 88,
+                errorWidget: (context, url, error) => const Center(
+                  child: Icon(Icons.error)),
+              ) : const Image(
+                height: 88,
+                width: 88,
+                image: AssetImage('assets/png/product_empty.png'),
+              )
+            )
           ],
         ),
-      );
-    });
+      ),
+    );
   }
 }

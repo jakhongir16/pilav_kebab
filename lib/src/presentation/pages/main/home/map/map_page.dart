@@ -91,6 +91,7 @@ class _MapPageState extends State<MapPage>
                           textAlign: TextAlign.center,
                         ),
                       ),
+                      Align(child: Image.asset(AppImages.mapIcon),),
                       CustomMapButton(
                         onPressed: () async {
                           await LocationRepository.determinePosition()

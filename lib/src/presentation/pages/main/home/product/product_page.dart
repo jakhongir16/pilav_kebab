@@ -6,13 +6,10 @@ import 'package:ploff_kebab/src/core/extension/language_extension.dart';
 import 'package:ploff_kebab/src/core/utils/utils.dart';
 import 'package:ploff_kebab/src/data/models/get_category_product/category_with_response.dart';
 import 'package:ploff_kebab/src/presentation/bloc/product/product_bloc.dart';
-import 'package:ploff_kebab/src/presentation/components/buttons/bottom_navigation_button.dart';
 import 'package:ploff_kebab/src/presentation/components/loading_widgets/modal_progress_hud.dart';
-import 'package:ploff_kebab/src/presentation/pages/main/home/product/widgets/bottom_nav_bar_navigation.dart';
 import 'package:ploff_kebab/src/presentation/pages/main/home/product/widgets/modifier_widget.dart';
 import 'package:ploff_kebab/src/presentation/pages/main/home/product/widgets/product_app_bar.dart';
 import 'package:ploff_kebab/src/presentation/pages/main/home/product/widgets/product_desc_title.dart';
-import 'package:ploff_kebab/src/presentation/pages/main/home/product/widgets/product_id_widget.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({

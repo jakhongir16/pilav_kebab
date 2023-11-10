@@ -27,7 +27,7 @@ class LanguageTileButton extends StatelessWidget {
       onTap: () {
         AppOptions.update(context, options.copyWith(locale: Locale(lang!)));
 
-        context.push(Routes.secondMain);
+        context.push(Routes.login);  //Routes.secondMain
         sl<LocalSource>().setLocale(lang);
         sl<LocalSource>().setLangSelected(value: true);
 

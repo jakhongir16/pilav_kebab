@@ -1,1 +1,1 @@
-enum ApiStatus {initial, failure, success, loading, fromSearch}
+enum ApiStatus {initial, failure, success, loading, fromSearch, getModifierSuccess}

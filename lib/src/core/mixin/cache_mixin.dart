@@ -22,4 +22,63 @@ mixin CacheMixin {
       imageUrl: imageUrl,
     );
   }
+
+  Future<void> setUserConfirmRegister({
+    required String id,
+    required String name,
+    required String phone,
+    required String createdAt,
+    required String updatedAt,
+    required String accessToken,
+    required String refreshToken,
+  }) async {
+    await localSource.setUserConfirmRegister(
+        id: id,
+        name: name,
+        phone: phone,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
+        accessToken: accessToken,
+        refreshToken: refreshToken);
+  }
+
+  Future<void> setUserInfoNd({
+    required String id,
+    required String name,
+    required String phone,
+    required bool isBlocked,
+    required String createdAt,
+    required String updatedAt,
+    required String accessToken,
+    required String refreshToken,
+    required int minimalOrderPrice,
+  }) async {
+    await localSource.setUserNd(
+        id: id,
+        name: name,
+        isBlocked: isBlocked,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
+        accessToken: accessToken,
+        refreshToken: refreshToken,
+        minimalOrderPrice: minimalOrderPrice);
+  }
+
+  Future<void> setUserInfoThird({
+    required String code,
+    required String phone,
+  }) async {
+    await localSource.setUserThird(
+      code: code,
+      phone: phone,
+    );
+  }
+
+  Future<void> setUserRegister({
+    required String message,
+  }) async {
+    await localSource.setUserRegister(
+        message: message
+    );
+  }
 }

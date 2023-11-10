@@ -18,12 +18,16 @@ sealed class Routes {
   static const String auth = '/auth';
   static const String confirmCode = '/confirm_code';
   static const String register = '/register';
+  static const String login = '/login';
   static const String otpPage = '/otp_page';
-
+  static const String otpRegisterPage = '/otp_register_page';
   static const String language = '/selectLanguage';
-
+  static const String loginOtpPage = '/login_otp_page';
   /// map
   static const String mapPage = '/map_page';
 
   static const String product = '/product';
+
+  /// home
+  static const String infoProduct = '/info_product';
 }

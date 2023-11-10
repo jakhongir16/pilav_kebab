@@ -21,7 +21,7 @@ class SelectLanguage extends StatelessWidget {
         statusBarIconBrightness: Brightness.dark,
     ),
       child: Scaffold(
-
+        backgroundColor: context.color.white,
         body: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(

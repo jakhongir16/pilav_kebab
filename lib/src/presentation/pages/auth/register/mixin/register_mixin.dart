@@ -1,14 +1,25 @@
-part of 'package:ploff_kebab/src/presentation/pages/auth/register/register.dart';
+part of 'package:ploff_kebab/src/presentation/pages/auth/register/register_page.dart';
 
-
-mixin RegisterMixin on State<Register> {
+mixin RegisterMixin on State<RegisterPage> {
   late final TextEditingController _fullNameController =
-  TextEditingController();
-  late final TextEditingController _bloodGroupController =
   TextEditingController();
   late final TextEditingController _phoneNumberController =
   TextEditingController();
-  // late final RegisterBloc _bloc = context.read<RegisterBloc>();
+  late final TextEditingController _registrationSource =
+  TextEditingController();
+
+  // late final TextEditingController _registrationSourceController =
+  // TextEditingController();
+ // late final CustomerRegisterBloc _bloc = context.read<CustomerRegisterBloc>();
+  final formKey = GlobalKey<FormState>();
+
+
+  // void _registerUser(){
+  //  _bloc.add(
+  //       RegisterRequestEvent();
+  //  );
+  // }
+
 
   @override
   void initState() {
@@ -21,35 +32,46 @@ mixin RegisterMixin on State<Register> {
   }
 
   @override
-        void dispose() {
-    //_bloc.close();
+  void dispose() {
+
     _disposeControllers();
     super.dispose();
   }
 
   void _disposeControllers() {
     _fullNameController.dispose();
-    _bloodGroupController.dispose();
     _phoneNumberController.dispose();
   }
 
+  String validateName(String value){
+    String trimmedValue = value.trim();
+    if(trimmedValue.isEmpty){
+      return context.tr('write_name');
+    }
+    return '';
+  }
+
+
+
+
   // void _registerUser() {
-  //
   //   final String phoneNum =
-  //   _phoneNumberController.text.replaceAll(RegExp('[0-9]'), ''),
-  //   // _bloc.add(
-  //   //   UserRegisterEvent(
-  //   //     additionalProps: {
-  //   //       'client_name': _fullNameController.text,
-  //   //       'phone_number': phoneNum,
-  //   //       'blood_group': _bloodGroupController.text,
-  //   //       'table_slug': 'clients'
-  //   //     },
-  //   //     phoneNumber: phoneNum,
-  //   //     bloodGroup: _bloodGroupController.text,
-  //   //     fullName: _fullNameController.text,
-  //   //   ),
+  //   _phoneNumberController.text.replaceAll(RegExp('[0-9]'), '');
+  //   _bloc.add(
+  //       CustomerUserRegisterEvent(
+  //
+  //
+  //           additionalProps: {
+  //             'name': _fullNameController.text,
+  //             'phone': phoneNum,
+  //             'registaration_source': _registrationSourceController,
+  //           },
+  //           phone: phoneNum,
+  //           name: _fullNameController.text,
+  //           registrationSource: _registrationSourceController.text,
+  //           ),
+  //
   //
   //   );
-  // }
-}
+  }
+

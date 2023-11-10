@@ -13,17 +13,23 @@ import 'package:ploff_kebab/src/config/router/app_routes.dart';
 import 'package:ploff_kebab/src/core/platform/network_info.dart';
 import 'package:ploff_kebab/src/data/models/hive/map.dart';
 import 'package:ploff_kebab/src/data/source/hive/map_locale_source.dart';
-import 'package:ploff_kebab/src/data/source/hive/product.dart';
 import 'package:ploff_kebab/src/data/source/local_source.dart';
 import 'package:ploff_kebab/src/domain/repositories/banner/banner_repository.dart';
-import 'package:ploff_kebab/src/domain/repositories/category_repository.dart';
+import 'package:ploff_kebab/src/domain/repositories/category/category_repository.dart';
+import 'package:ploff_kebab/src/domain/repositories/customer/customer_repository.dart';
 import 'package:ploff_kebab/src/domain/repositories/map/map_repository.dart';
-import 'package:ploff_kebab/src/presentation/bloc/banner/banner_bloc.dart';
+import 'package:ploff_kebab/src/domain/repositories/order/order_repository.dart';
+import 'package:ploff_kebab/src/domain/repositories/product/product_repository.dart';
+import 'package:ploff_kebab/src/presentation/bloc/auth/auth_bloc.dart';
+import 'package:ploff_kebab/src/presentation/bloc/auth/confirm/confirm_code_bloc.dart';
+import 'package:ploff_kebab/src/presentation/bloc/auth/customer_register/customer_register_bloc.dart';
 import 'package:ploff_kebab/src/presentation/bloc/home/home_bloc.dart';
 import 'package:ploff_kebab/src/presentation/bloc/main/main_bloc.dart';
 import 'package:ploff_kebab/src/presentation/bloc/map/map_bloc.dart';
+import 'package:ploff_kebab/src/presentation/bloc/order/order_bloc.dart';
+import 'package:ploff_kebab/src/presentation/bloc/product/product_bloc.dart';
 import 'package:ploff_kebab/src/presentation/bloc/splash/bloc/splash_bloc.dart';
-
+import 'package:ploff_kebab/src/data/source/hive/products.dart';
 
 import 'core/constants/constants.dart';
 
@@ -31,7 +37,7 @@ import 'core/constants/constants.dart';
 final sl = GetIt.instance;
 late Box<dynamic> _box;
 late Box<MapLocale> _mapBox;
-
+late Box<Products> _productBox;
 Future<void> init() async {
   /// External
   await initHive();
@@ -79,16 +85,19 @@ Future<void> init() async {
       );
 
   sl
-    ..registerSingleton<LocalSource>(LocalSource(_box))
+    ..registerSingleton<LocalSource>(LocalSource(_box,_productBox))
     ..registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()))
     ..registerLazySingleton<InternetConnectionChecker>(() => InternetConnectionChecker())
-    ..registerSingleton<MapLocaleSource>(MapLocaleSource(_mapBox));
+    ..registerSingleton<MapLocaleSource>(MapLocaleSource(_mapBox,));
 
   /// main
   mainFeature();
   homeFeature();
   bannerFeature();
   mapFeature();
+  customerFeature();
+  orderFeature();
+  productFeature();
   // /// auth
   // authFeature();
 
@@ -107,7 +116,7 @@ void mainFeature() {
    ..registerFactory<HomeBloc>(() => HomeBloc(sl(), sl(),))
    ..registerLazySingleton<GetCategoryProductRepository>(
          () => CategoryRepositoryImpl(
-           dio: sl()),
+           dio: sl(),),
    );
  }
 
@@ -123,6 +132,31 @@ void mainFeature() {
   )..registerLazySingleton<MapYandexRepository>(() => MapYandexRepositoryImpl(dio: sl()),
   );
  }
+
+ void customerFeature(){
+  sl..registerFactory<CustomerRegisterBloc>(() => CustomerRegisterBloc(sl()))
+    ..registerFactory<AuthBloc>(() => AuthBloc(sl()))
+    ..registerFactory<ConfirmCodeBloc>(() => ConfirmCodeBloc(sl()))
+    ..registerLazySingleton<CustomerRepository>(
+      () => CustomerRepositoryImpl(dio: sl(),));
+ }
+
+void orderFeature() {
+  sl..registerFactory<OrderBloc>(() => OrderBloc(sl()))
+  ..registerLazySingleton<OrderRepository>(
+          () => OrderRepositoryImpl(
+              dio: sl(),
+          ),
+  );
+}
+
+void productFeature(){
+  sl..registerFactory<ProductBloc>(() => ProductBloc(sl()))
+      ..registerLazySingleton<ProductRepository>(() => ProductRepositoryImpl(
+          dio: sl(),
+      ),
+      );
+}
 
 // void registerFeature() {
 //   sl
@@ -146,7 +180,8 @@ Future<void> initHive() async {
   const String mapBox = 'map_box';
   final Directory directory = await getApplicationDocumentsDirectory();
   Hive.init(directory.path);
-  Hive.registerAdapter(NameTitleAdapter());
+  Hive.registerAdapter(TitleNameAdapter());
   _box = await Hive.openBox<dynamic>(boxName);
   _mapBox = await Hive.openBox<MapLocale>(mapBox);
+  _productBox = await Hive.openBox<Products>(AppKeys.localSource);
 }
